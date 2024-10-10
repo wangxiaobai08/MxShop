@@ -52,7 +52,7 @@ message UpdataUserInfoRequest{
 }
 
 message UpdateResponse{
-  int32 success=1;
+  bool success=1;
 }
 
 
