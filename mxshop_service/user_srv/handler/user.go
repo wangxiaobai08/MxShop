@@ -15,7 +15,9 @@ import (
 
 var serviceName = "【User_Service】"
 
-type UserService struct{}
+type UserService struct {
+	proto.UnimplementedUserServer
+}
 
 // GetUserList
 // @Description: 获取用户列表
