@@ -1,0 +1,66 @@
+syntax = "proto3";
+option go_package =".;proto";
+
+service User{
+rpc GetUserList(PageInfoRequest) returns (UserListResponse);
+rpc GetUserByMobile(MobileRequest) returns (UserInfoResponse);
+rpc getUserById(IdRequest) returns (UserInfoResponse);
+rpc CreateUser(CreateUserInfoRequest) returns (UserInfoResponse);
+rpc UpdataUser(UpdataUserInfoRequest) returns (UpdateResponse);
+rpc CheckPassword(CheckPasswordRequest) returns (CheckPasswordResponse);
+}
+
+message  PageInfoRequest{
+   uint32 pagenums=1;
+   uint32 pagesize=2;
+}
+
+message UserInfoResponse{
+  int32 id = 1;
+  string password = 2;
+  string mobile = 3;
+  string nickName = 4;
+  uint64 birthday = 5;
+  string gender = 6;
+  int32  role = 7;
+}
+
+message UserListResponse{
+  int32 total=1;
+  repeated UserInfoResponse data=2;
+}
+
+message MobileRequest{
+  string mobile=1;
+}
+
+message IdRequest{
+  int32 id=1;
+}
+
+message CreateUserInfoRequest{
+  string nickName = 1;
+  string password = 2;
+  string mobile = 3;
+}
+
+message UpdataUserInfoRequest{
+  int32 id = 1;
+  string nickName = 2;
+  string gender =3 ;
+  uint64 birthday = 4;
+}
+
+message UpdateResponse{
+  bool success=1;
+}
+
+
+message CheckPasswordRequest{
+  string password = 1;
+  string encryptedPassword = 2;
+}
+
+message CheckPasswordResponse{
+  bool success = 1;
+}
