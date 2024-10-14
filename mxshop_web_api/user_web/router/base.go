@@ -12,5 +12,4 @@ func InitBaseRouter(Router *gin.RouterGroup) {
 		BaseRouter.GET("/captcha", api.GetCaptcha)
 		BaseRouter.POST("/note_code", api.SendNoteCode)
 	}
-
 }

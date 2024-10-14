@@ -15,6 +15,5 @@ func main() {
 	port := 8021
 	err := Router.Run(fmt.Sprintf(":%d", port))
 	if err != nil {
-
 	}
 }
